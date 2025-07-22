@@ -278,20 +278,22 @@ ALLOC_CALL void * __cdecl _recalloc ( void * memblock, size_t count, size_t size
 	return pMemOut;
 }
 
-size_t _msize_base( void *pMem )
+// Renomme la fonction
+size_t My_msize_base(void* pMem)
 {
 	return g_pMemAlloc->GetSize(pMem);
 }
 
-size_t _msize( void *pMem )
+size_t _msize(void* pMem)
 {
-	return _msize_base(pMem);
+	return My_msize_base(pMem);
 }
 
-size_t msize( void *pMem )
+size_t msize(void* pMem)
 {
 	return g_pMemAlloc->GetSize(pMem);
 }
+
 
 void *__cdecl _heap_alloc( size_t nSize )
 {

@@ -23,24 +23,25 @@ enum
 
 class KeyValues;
 
-// command:
-typedef struct
+struct CCOMMAND
 {
-	BOOL bEnable;				// Run this command?
+    BOOL bEnable;
+    int iSpecialCmd;
+    char szRun[MAX_PATH];
+    char szParms[MAX_PATH];
+    BOOL bLongFilenames;
+    BOOL bEnsureCheck;
+    char szEnsureFn[MAX_PATH];
+    BOOL bUseProcessWnd;
+    BOOL bNoWait;
 
-	int iSpecialCmd;			// Nonzero if special command exists
-	char szRun[MAX_PATH];
-	char szParms[MAX_PATH];
-	BOOL bLongFilenames;		// Obsolete, but kept here for file backwards compatibility
-	BOOL bEnsureCheck;
-	char szEnsureFn[MAX_PATH];
-	BOOL bUseProcessWnd;
-	BOOL bNoWait;
+    void Save(KeyValues* pKv) const;
+    void Load(KeyValues* pKv);
+};
 
-    void Save(KeyValues *pKv) const;
-    void Load(KeyValues *pKv);
+// Déclaration correcte du typedef pointeur
+typedef CCOMMAND* PCCOMMAND;
 
-} CCOMMAND, *PCCOMMAND;
 
 // list of commands:
 typedef CArray<CCOMMAND, CCOMMAND&> CCommandArray;

@@ -23,6 +23,7 @@ class Vector;
 class StockSolid
 {
 	public:
+
 		int GetFieldCount() const;
 		void SetFieldData(int iIndex, int iData);
 		int GetFieldData(int iIndex, int *piData = NULL) const;
@@ -34,7 +35,7 @@ class StockSolid
 
 		virtual void CreateMapSolid(CMapSolid *pSolid, TextureAlignment_t eAlignment) = 0;
 
-		~StockSolid();
+		virtual ~StockSolid();
 
 	protected:
 		StockSolid(int nFields);

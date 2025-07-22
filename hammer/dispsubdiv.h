@@ -18,6 +18,7 @@ class CMapDisp;
 class IEditDispSubdivMesh
 {
 public:
+	virtual ~IEditDispSubdivMesh() {}  // <<-- ajoute ce destructeur virtuel
 
 	virtual void Init( void ) = 0;
 	virtual void Shutdown( void ) = 0;
@@ -26,6 +27,7 @@ public:
 	virtual void GetDispFrom( CMapDisp *pDisp ) = 0;
 
 	virtual void DoCatmullClarkSubdivision( void ) = 0;
+
 };
 
 IEditDispSubdivMesh *CreateEditDispSubdivMesh( void );

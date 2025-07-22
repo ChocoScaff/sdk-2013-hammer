@@ -31,6 +31,10 @@ public:
 	
 	CObjectBar();
 	BOOL Create(CWnd *pParentWnd);
+
+	//virtual ~CObjectBar() = 0;
+	virtual ~CObjectBar() {}
+
 	
 	static LPCTSTR GetDefaultEntityClass(void);
 
